@@ -6,7 +6,6 @@ import trade.javiergutierrez.serviceshop.entity.Product;
 
 import java.util.List;
 
-@Service
 public interface ProductService {
     List<Product> listAllProduct();
     Product getProduct(Long id);

@@ -1,6 +1,8 @@
 package trade.javiergutierrez.serviceshop.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import trade.javiergutierrez.serviceshop.entity.Category;
 import trade.javiergutierrez.serviceshop.entity.Product;
 import trade.javiergutierrez.serviceshop.repository.ProductRepository;
@@ -8,9 +10,10 @@ import trade.javiergutierrez.serviceshop.repository.ProductRepository;
 import java.util.Date;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements  ProductService{
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Override
     public List<Product> listAllProduct() {
