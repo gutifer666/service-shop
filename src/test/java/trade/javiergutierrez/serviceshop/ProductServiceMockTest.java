@@ -35,12 +35,20 @@ public class ProductServiceMockTest {
 
         Mockito.when(productRepository.findById(1L))
                 .thenReturn(Optional.of(villacampas));
+        Mockito.when(productRepository.save(villacampas))
+                .thenReturn(villacampas);
     }
 
     @Test
     public void whenValidGetID_ThenReturnProduct(){
         Product found = productService.getProduct(1L);
         assert(found.getName()).equals("Kelme Villacampa");
+    }
+
+    @Test
+    public void whenValidUpdateStock_ThenReturnNewStock(){
+        Product newStock = productService.updateStock(1L, Double.parseDouble("8"));
+        assert(newStock.getStock()).equals(18D);
     }
 
 }
